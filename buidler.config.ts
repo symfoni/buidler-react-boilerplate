@@ -9,31 +9,6 @@ const config: BuidlerConfig = {
   solc: {
     version: "0.6.8",
   },
-  typechain: {
-    outDir: "./frontend/src/buidler/typechain",
-    target: "ethers-v5",
-  },
-  namedAccounts: {
-    deployer: {
-      default: 0,
-    },
-  },
-  paths: {
-    artifacts: "./frontend/src/buidler/artifacts",
-    deployments: "./frontend/src/buidler/deployments",
-    react: "./frontend/src/buidler",
-  },
-  networks:{
-    buidlerevm: {
-      accounts: [
-        {
-          balance: "0x1B1AE4D6E2EF500000", //5000
-          privateKey:
-            "0x50228cca6dd3264c74713855801d16e63a2b0e42e86fa374562316a629d03a30",
-        },
-      ],
-    },
-  }
 };
 
 export default config;
