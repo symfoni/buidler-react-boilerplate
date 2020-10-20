@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "@nomiclabs/buidler": "^1.4.8",
+    "@openzeppelin/contracts": "^3.2.0",
     "@symfoni/buidler-react": "^0.0.16",
     "@symfoni/buidler-typechain": "^0.2.1",
     "@typechain/ethers-v5": "^2.0.0",

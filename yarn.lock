@@ -455,6 +455,11 @@
     safe-buffer "^5.1.1"
     util.promisify "^1.0.0"
 
+"@openzeppelin/contracts@^3.2.0":
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/@openzeppelin/contracts/-/contracts-3.2.0.tgz#3e6b3a7662d8ed64271ade96ef42655db983fd9d"
+  integrity sha512-bUOmkSoPkjnUyMiKo6RYnb0VHBk5D9KKDAgNLzF41aqAM3TeE0yGdFF5dVRcV60pZdJLlyFT/jjXIZCWyyEzAQ==
+
 "@sentry/core@5.26.0":
   version "5.26.0"
   resolved "https://registry.yarnpkg.com/@sentry/core/-/core-5.26.0.tgz#9b5fe4de8a869d733ebcc77f5ec9c619f8717a51"
@@ -533,10 +538,10 @@
   resolved "https://registry.yarnpkg.com/@solidity-parser/parser/-/parser-0.5.2.tgz#4d74670ead39e4f4fdab605a393ba8ea2390a2c4"
   integrity sha512-uRyvnvVYmgNmTBpWDbBsH/0kPESQhQpEc4KsvMRLVzFJ1o1s0uIv0Y6Y9IB5vI1Dwz2CbS4X/y4Wyw/75cTFnQ==
 
-"@symfoni/buidler-react@^0.0.14":
-  version "0.0.14"
-  resolved "https://registry.yarnpkg.com/@symfoni/buidler-react/-/buidler-react-0.0.14.tgz#d1e71ecc1795c3da77b668267fb652894ed64dc0"
-  integrity sha512-KA4qEGaIHpr26+nGUtZTGO21v+MiiYworq9qN8stgmepk1pFMr9W8wep/mwsBNk6c46qGcPHztLAMtXVClatMQ==
+"@symfoni/buidler-react@^0.0.16":
+  version "0.0.16"
+  resolved "https://registry.yarnpkg.com/@symfoni/buidler-react/-/buidler-react-0.0.16.tgz#e97806ebd884256998ffd57e47fa248dfb6bcb7a"
+  integrity sha512-CEX6QszuLRa4rtX11DHbWgWzmXX2MdPP5bWy0vAlzYsJtzLnln74uSxQsslD17JCP0YeGBKi6caOzF1D2AzKGg==
   dependencies:
     "@nomiclabs/buidler" "^1.4.8"
     "@symfoni/buidler-typechain" "^0.2.1"
