@@ -249,4 +249,4 @@ You should see the Greeting from the smart contract and at what address it is de
 
 **Thanks for completing our tutorial!**
 
-We hope that you can use this to more efficently write Ethereum applications 📈 If you have any feedback, good or bad, please don't hesitate to ping us at [@_robertosnap](https://twitter.com/_robertosnap/) and [@jonramvi](https://twitter.com/jonramvi/) 🐦
+We hope that you can use this to more efficently write Ethereum applications 📈 If you have any feedback, good or bad, please don't hesitate to ping us at [@_robertosnap](https://twitter.com/_robertosnap/) 🐦 or with a Issue here on Github.
