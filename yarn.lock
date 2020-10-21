@@ -533,10 +533,10 @@
   resolved "https://registry.yarnpkg.com/@solidity-parser/parser/-/parser-0.5.2.tgz#4d74670ead39e4f4fdab605a393ba8ea2390a2c4"
   integrity sha512-uRyvnvVYmgNmTBpWDbBsH/0kPESQhQpEc4KsvMRLVzFJ1o1s0uIv0Y6Y9IB5vI1Dwz2CbS4X/y4Wyw/75cTFnQ==
 
-"@symfoni/buidler-react@^0.0.14":
-  version "0.0.14"
-  resolved "https://registry.yarnpkg.com/@symfoni/buidler-react/-/buidler-react-0.0.14.tgz#d1e71ecc1795c3da77b668267fb652894ed64dc0"
-  integrity sha512-KA4qEGaIHpr26+nGUtZTGO21v+MiiYworq9qN8stgmepk1pFMr9W8wep/mwsBNk6c46qGcPHztLAMtXVClatMQ==
+"@symfoni/buidler-react@^0.0.20":
+  version "0.0.20"
+  resolved "https://registry.yarnpkg.com/@symfoni/buidler-react/-/buidler-react-0.0.20.tgz#14bc4e2e1c302c61c1fa27cfef8afb0cc050cf5a"
+  integrity sha512-72kZIDFFGLoVILXwHjkFV1lr7AZMFHmJb+qHoYWTpDQ31jQsgMacBnvD9OKBHvbWKwLLOydpUs00QrFW2Z2gyA==
   dependencies:
     "@nomiclabs/buidler" "^1.4.8"
     "@symfoni/buidler-typechain" "^0.2.1"
@@ -544,7 +544,7 @@
     "@types/fs-extra" "^9.0.2"
     "@types/mocha" "^8.0.3"
     "@types/node" "^14.11.10"
-    buidler-deploy "^0.6.0-beta.34"
+    buidler-deploy "^0.0.19"
     chai "^4.2.0"
     dotenv "^8.2.0"
     mocha "^8.2.0"
@@ -989,10 +989,10 @@ buffer@^5.2.1, buffer@^5.6.0:
     base64-js "^1.0.2"
     ieee754 "^1.1.4"
 
-buidler-deploy@^0.6.0-beta.34:
-  version "0.6.0-beta.34"
-  resolved "https://registry.yarnpkg.com/buidler-deploy/-/buidler-deploy-0.6.0-beta.34.tgz#9f1e68312a2c3cb3a1d83cb810f01dac01fd79ed"
-  integrity sha512-jKMHrNBdd7BuBeL2RdGCYApPlli9QcVHk/YlnFo8n+IuswuPhijot/qiJhQPTwq+Cmkr9Ec+0IClaVGRoCWxGw==
+buidler-deploy@^0.0.19, buidler-deploy@^0.6.0-beta.35:
+  version "0.6.0-beta.35"
+  resolved "https://registry.yarnpkg.com/buidler-deploy/-/buidler-deploy-0.6.0-beta.35.tgz#ffe148cef660a0060acfbafb1b96444e6c582b40"
+  integrity sha512-KClm2ngU/xnYCxx2xYHmhFpzKgt2OAXkx+JUkSrMYx+dg9VXlNGY61kvVmovvo0/H9jB9iaZhWyze58QR6f05A==
   dependencies:
     "@ethersproject/abi" "^5.0.2"
     "@ethersproject/abstract-signer" "^5.0.2"
