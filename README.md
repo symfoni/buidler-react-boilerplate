@@ -359,7 +359,7 @@ export const MyToken: React.FC<Props> = () => {
     return (
         <div>
             <input onChange={(e) => setInputName(e.target.value)}></input>
-            <button onClick={(e) => deployToken(e)}>Create token and transfer</button>
+            <button onClick={(e) => deployToken(e)}>Create token</button>
         </div>
     )
 }' > frontend/src/components/MyToken.tsx
