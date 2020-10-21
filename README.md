@@ -1,32 +1,40 @@
-# 🎻 Getting started with Symfoni. CHECK FOR TODOS
 
-> The Buidler React Project generator 👷
+### We ❤️ these **Ethereum** projects:
 
-We have taken what we ❤️ about [Buidler projects](https://buidler.dev/) and have extended it with the possibility to generate an React context with:
+* [Buidler](https://buidler.dev/) with the Deploy plugin 👷
+* [Typechain 🔌](https://github.com/ethereum-ts/Typechain#readme)
+* [ethers.js v5](https://github.com/ethers-io/ethers.js#readme)
+
+😩 Deployment and testing could be sooo tedious before. With these tools, we get Ethereum-projects, which are easy to develop, manage and maintain.
+
+🤔 It's still kind of tedious, though. We have to find where every contract is deployed and connect them to the correct Typescript class before exporting it.
+
+🤩 What if all of these tools worked in Symfoni? What if we wired all of this together and automatically generated the Typescript code; completely instancialized based on your smart contracts?
+
+and have extended it with the possibility to generate a React context with:
 
 * contract loading
-* web3modal, ethers v5 and typed interfaces out of the box
-* a great abd simple way to store data outside of the TODO
+* web3modal, ethers v5, and typed interfaces out of the box
+* a great and simple way to store data outside of the TODO
 
-This is so that for application developers, get a good, typed starting point from their contracts. Also it gives them a way to store stuff outside of the blockchain e.g. to solve the GDPR challenges with personal data and blockchain. We also wish to include more storage options i.e. to handle accounts, groups, roles and encryption, and store and retrieve the data fra arbitrary destinations. This is so enterprises can store part of their data on premise.
+### Enter our submission to the EthOnline 2020 hackathon!
 
-### How It's Made
+# 🎻 Symfoni. CHECK FOR TODOS
 
-We're building an aggregated CLI accross Buidler, Buidler plugins and Textile. This is done in Typescript.
+> The tooling aggregator that makes your development process purr 😻
 
-### Team
+### Getting started with Symfoni
 
- [🇳🇴 Jon Ramvi](https://github.com/ramvi/),  [🇳🇴 Robin Pedersen](https://github.com/RobertoSnap), [🇩🇪 Hendrik Bilges](https://github.com/elektronaut0815)
-
-# Tutorial
 
 This tutorial will TODO
 
 TODO test igjen
-TODO test på windows
-TODO npm project must include code
 
+### OS Support
 
+* MacOS
+* Linux
+* *The project has only been tested on MacOS and Linux. It should, in theory, work on Windows too. Don't hesitate to reach out if you experience problems.*
 
 ## ⚙️ Setup new project
 
@@ -39,9 +47,9 @@ TODO npm project must include code
 `npx @nomiclabs/buidler` 
 
 
->  If you don't have solidity files ready, select the `Create a sample project`. You must choose this if you wish to follow this tutorial all the way through. The npx command will ask you to install a couple of packages with npm. Copy, paste and execute the npm command.
+>  If you don't have solidity files ready, select the `Create a sample project`. You must choose this if you wish to follow this tutorial all the way through. The npx command will ask you to install a couple of packages with npm. Copy, paste, and execute the npm command.
 
-> If you do have projects files to include, choose `Create an empty buidler.config.js` and TODO
+> If you do have project files to include, choose `Create an empty buidler.config.js` and copy/paste those solidity files into /contracts folder.
 
 * Add Chai for testing in the dev environment:
 
@@ -51,7 +59,7 @@ TODO npm project must include code
 
 `mkdir deploy`
 
-* And [create a deployment file for each of your smart contracts](https://buidler.dev/plugins/buidler-deploy.html#deploy-scripts). If you chose to create a sample project in the first step, we have created a simple deploy script that you can use: 
+* And [create a deployment file for each of your smart contracts](https://buidler.dev/plugins/buidler-deploy.html#deploy-scripts). If you chose to make a sample project in the first step, we have created a simple deploy script that you can use: 
 
 ```bash
 echo 'import {
@@ -71,73 +79,36 @@ const func: DeployFunction = async function(bre: BuidlerRuntimeEnvironment) {
 export default func;' > deploy/Greeter.ts
 ```
 
-
 ###  🪄 Now let's add the Symfoni magic ✨
 
-* Up untill now this is all just a regular Buidler project. Now run this command to add our packages:
+* Up until now, this is all just a regular Buidler project. Now run this command to add our packages, including dependencies:
 
-`npm add @nomiclabs/buidler @symfoni/buidler-react @symfoni/buidler-typechain @typechain/ethers-v5 buidler-deploy buidler-ethers-v5 ethers ts-generator ts-node typechain typescript`
-
-* Convert the project to a Buidler Typescript project by overwriting Buidler with the Symfoni configuration files ✨:
-
-* Change the contents of `buidler.config.ts` to:
-
-```typescript
-import { BuidlerConfig, usePlugin } from "@nomiclabs/buidler/config";
-
-usePlugin("buidler-ethers-v5");
-usePlugin("buidler-deploy");
-usePlugin("@symfoni/buidler-typechain");
-usePlugin("@symfoni/buidler-react");
-
-const config: BuidlerConfig = {
-  solc: {
-    version: "0.6.8",
-  },
-};
-
-export default config;
-
+```bash
+npm add @nomiclabs/buidler @symfoni/buidler-react @symfoni/buidler-typechain @typechain/ethers-v5 buidler-deploy buidler-ethers-v5 ethers ts-generator ts-node typechain typescript
 ```
 
-* Create `tsconfig.json`:
-```json
-{
-   "compilerOptions":{
-      "target":"es5",
-      "module":"commonjs",
-      "strict":true,
-      "esModuleInterop":true,
-      "outDir":"dist"
-   },
-   "include":[
-      "./scripts",
-      "./test",
-      "./deploy"
-   ],
-   "files":[
-      "./buidler.config.ts",
-      "./node_modules/buidler-deploy/src/type-extensions.d.ts",
-      "./node_modules/buidler-ethers-v5/src/type-extensions.d.ts",
-      "./node_modules/@blockchangers/buidler-typechain/src/type-extensions.d.ts",
-      "./node_modules/@symfoni/buidler-react/src/type-extensions.d.ts"
-   ]
-}
+* Convert the project to a Buidler Typescript project by overwriting Buidler with the Symfoni configuration files:
+
+```bash
+rm buidler.config.js 
+cp node_modules/@symfoni/buidler-react/defaults/buidler.config.default.ts buidler.config.ts 
+cp node_modules/@symfoni/buidler-react/defaults/tsconfig.default.json tsconfig.json
 ```
-
-
-
-
-
 
 **Setup complete! 🥳**
 
 
-## 🎨 Lets create the frontend
+## 🎨 Lets create the front-end
 
 * Generate the React app:
 
 `npx create-react-app frontend --template typescript`
+
+* To run the "back-end" execute `npx buidler node`. It 
+  * start a development chain
+  * compiles and deploys the contracts
+  * generates the type interfaces for the contracts, and 
+  * generate a react context to use those contracts as typed interfaces run.
 
 * Go into the front-end folder: 
 
@@ -145,7 +116,7 @@ export default config;
 
 * Then we need to add the dependencies:
 
-> Note that "Create React app" comes with an old version of Typescript, which is not compatible with Typechain, so let's also ensure Typescript is fixed at v3.9.7. Please note that v4 does not work.
+> Note that the "Create React app" comes with an old version of Typescript, which is not compatible with Typechain, so let's also ensure Typescript is fixed at v3.9.7. Please note that v4 does not work.
 
 `npm add web3modal ethers typescript@^3.9.7`
 
@@ -153,11 +124,25 @@ export default config;
 
 `npm run start`
 
-* Now lets add the Buidler context to the front-end. Open in your code editor of choice `/frontend/src/App.tsx`
+> A browser should start with the default "Create react app" webpage.
 
-* Add to the imports on the top: `import { BuidlerContext } from "./buidler/BuidlerContext”;`
+* Now, let's add the Buidler context to the front-end. Open in your code editor of choice, and open `/frontend/src/App.tsx`
 
-* Wrap your app in this context to have it available to use in any children: `<BuidlerContext></BuidlerContext>`
+* Add the React context generated by Symfoni to the imports on the top of the file. If you're using the Sample Project, it should be under `import './App.css';`
+
+```typescript
+import { BuidlerContext } from "./buidler/BuidlerContext”;`
+```
+
+* Wrap your app in this context to have it available to use in any children: `<BuidlerContext></BuidlerContext>`. In the Sample project, it should look like this:
+
+```typescript
+  <header className="App-header">
+    <BuidlerContext>
+      …
+    </BuidlerContext>
+  </header>
+```
 
 **Front-end setup complete! 🎉**
 
@@ -165,9 +150,9 @@ You can now start developing your app or continue with the tutorial.
 
 ## 📙 Tutorial 
 
-To continue from here, you must have chosen `Create a sample project` way back in the first step.
+You must have chosen `Create a sample project` way back in the first step to continue from here. Else you can extrapolate with your project setup. 
 
-Lets create a components that consumes a smart contract and gives us some results. From the Buidler sample project we have a smart contract called `Greeter.sol`.
+Let's create a component that consumes a smart contract and gives us some results. From the Buidler sample project, we have a smart contract called `Greeter.sol`.
 
 * Create a `tsx` file for the view of the smart contract
 
@@ -204,7 +189,7 @@ export const Greeter: React.FC<Props> = () => {
 Note that the Greeter context both provide you with
 
 * a contract which contains all your functions, events and info, and
-* a factory where you can let users easily deploy new contract instances from the frontend.
+* a factory where you can let users quickly deploy new contract instances from the front-end.
 
 Lets import this component into our app, which leaves our `App.tsx` like this:
 
@@ -242,11 +227,24 @@ function App() {
 
 export default App;
 ```
-
-You should see the Greeting from the smart contract and at what address it is deployed to. 
-
-[You can see a full working example of the tutorial here](https://github.com/symfoni/buidler-react-boilerplate)
+> The buidler context will now ask `web3modal` for an injected provider. If it finds a provider, you should see the Greeting from the smart contract in the browser and the address the contract is deployed at in the console. 
+ 
+[📚 You can see a full working example of the tutorial here.](https://github.com/symfoni/buidler-react-boilerplate)
 
 **Thanks for completing our tutorial!**
 
-We hope that you can use this to more efficently write Ethereum applications 📈 If you have any feedback, good or bad, please don't hesitate to ping us at [@_robertosnap](https://twitter.com/_robertosnap/) 🐦 or with a Issue here on Github.
+We hope that you can use this to more efficiently write Ethereum applications 📈 If you have any feedback, good or bad, please don't hesitate to ping us at [@_robertosnap](https://twitter.com/_robertosnap/)🐦 or with a Issue here on Github.
+
+
+
+# Bonus
+
+* Example how to deploy a contract - https://github.com/symfoni/buidler-react-boilerplate/tree/bonus-greeter-deploy
+* Example how to create and deploy an ERC20 - https://hackmd.io/@symfoni/r1qcTA3DD 
+
+
+TODO CREDIT 
+* Buidler
+* Typechain
+* Buidler-deploy
+* Web3modal
