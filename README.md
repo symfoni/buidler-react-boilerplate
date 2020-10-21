@@ -379,11 +379,13 @@ import { MyToken } from './components/MyToken';
 ### What am I seeing? 👀
 
 In `frontend/src/components/MyToken.tsx` the smart contact is avaiable like any regular typed object:
+
 ![](https://i.imgur.com/HIceyBc.gif)
 
 We check our balance through the myToken.balanceOf() function. We see that the return value is a BigNumber, so before outputting it to console, we format it with ethers utils.
 
 Let's name our contract and deploy it. Our wallet provider should pop up with confirmations to deploy and transfer this new token.
+
 ![](https://i.imgur.com/Ne7DMQx.gif)
 
 It couldn't be easier!
