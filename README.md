@@ -229,6 +229,9 @@ export const Greeter: React.FC<Props> = () => {
 };
 ```
 
+Or write this yourself and experience typed smart-contracts
+![](https://media.giphy.com/media/w5KyWv8CCcfaB6vM1B/giphy.gif)
+
 Note that the Greeter context both provides you with
 
 - a contract which contains all your functions, events and info, and
