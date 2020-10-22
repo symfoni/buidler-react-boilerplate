@@ -4,11 +4,11 @@
 import { providers, Signer, ethers } from "ethers";
 import React, { useEffect, useState } from "react";
 import Web3Modal, { IProviderOptions } from "web3modal";
+import { Erc20 } from "./typechain/Erc20";
+import { Erc20Factory } from "./typechain/Erc20Factory";
 import GreeterDeployment from "./deployments/localhost/Greeter.json";
 import { Greeter } from "./typechain/Greeter";
 import { GreeterFactory } from "./typechain/GreeterFactory";
-import { Erc20 } from "./typechain/Erc20";
-import { Erc20Factory } from "./typechain/Erc20Factory";
 import { Token } from "./typechain/Token";
 import { TokenFactory } from "./typechain/TokenFactory";
 
@@ -22,21 +22,21 @@ const defaultCurrentAddress: string = "";
 export const CurrentAddressContext = React.createContext<[string, React.Dispatch<React.SetStateAction<string>>]>([defaultCurrentAddress, () => { }]);
 const defaultSigner: Signer | undefined = undefined;
 export const SignerContext = React.createContext<[Signer | undefined, React.Dispatch<React.SetStateAction<Signer | undefined>>]>([defaultSigner, () => { }]);
-export const GreeterContext = React.createContext<SymfoniGreeter>(emptyContract);
 export const ERC20Context = React.createContext<SymfoniErc20>(emptyContract);
+export const GreeterContext = React.createContext<SymfoniGreeter>(emptyContract);
 export const TokenContext = React.createContext<SymfoniToken>(emptyContract);
 
 export interface BuidlerSymfoniReactProps {
 }
 
-export interface SymfoniGreeter {
-    instance?: Greeter;
-    factory?: GreeterFactory;
-}
-
 export interface SymfoniErc20 {
     instance?: Erc20;
     factory?: Erc20Factory;
+}
+
+export interface SymfoniGreeter {
+    instance?: Greeter;
+    factory?: GreeterFactory;
 }
 
 export interface SymfoniToken {
@@ -75,8 +75,8 @@ export const BuidlerContext: React.FC<BuidlerSymfoniReactProps> = (props) => {
 
         return provider;
     };
-    const [Greeter, setGreeter] = useState<SymfoniGreeter>(emptyContract);
     const [ERC20, setERC20] = useState<SymfoniErc20>(emptyContract);
+    const [Greeter, setGreeter] = useState<SymfoniGreeter>(emptyContract);
     const [Token, setToken] = useState<SymfoniToken>(emptyContract);
     const providerPriority = ["web3modal"];
     const getWeb3ModalProvider = async (): Promise<any> => {
@@ -117,8 +117,8 @@ export const BuidlerContext: React.FC<BuidlerSymfoniReactProps> = (props) => {
                     }
                 }
 
-                setGreeter(getGreeter(_provider, _signer))
                 setERC20(getERC20(_provider, _signer))
+                setGreeter(getGreeter(_provider, _signer))
                 setToken(getToken(_provider, _signer))
 
                 setReady(true)
@@ -128,6 +128,14 @@ export const BuidlerContext: React.FC<BuidlerSymfoniReactProps> = (props) => {
         return () => { subscribed = false }
     }, [])
 
+    const getERC20 = (_provider: providers.Provider, _signer?: Signer) => {
+        let instance = undefined
+        const contract: SymfoniErc20 = {
+            instance: instance,
+            factory: _signer ? new Erc20Factory(_signer) : undefined,
+        }
+        return contract
+    };
     const getGreeter = (_provider: providers.Provider, _signer?: Signer) => {
 
         const contractAddress = GreeterDeployment.receipt.contractAddress
@@ -135,14 +143,6 @@ export const BuidlerContext: React.FC<BuidlerSymfoniReactProps> = (props) => {
         const contract: SymfoniGreeter = {
             instance: instance,
             factory: _signer ? new GreeterFactory(_signer) : undefined,
-        }
-        return contract
-    };
-    const getERC20 = (_provider: providers.Provider, _signer?: Signer) => {
-        let instance = undefined
-        const contract: SymfoniErc20 = {
-            instance: instance,
-            factory: _signer ? new Erc20Factory(_signer) : undefined,
         }
         return contract
     };
@@ -158,8 +158,8 @@ export const BuidlerContext: React.FC<BuidlerSymfoniReactProps> = (props) => {
         <ProviderContext.Provider value={[provider, setProvider]}>
             <SignerContext.Provider value={[signer, setSigner]}>
                 <CurrentAddressContext.Provider value={[currentAddress, setCurrentAddress]}>
-                    <GreeterContext.Provider value={Greeter}>
-                        <ERC20Context.Provider value={ERC20}>
+                    <ERC20Context.Provider value={ERC20}>
+                        <GreeterContext.Provider value={Greeter}>
                             <TokenContext.Provider value={Token}>
                                 {ready &&
                                     (props.children)
@@ -172,8 +172,8 @@ export const BuidlerContext: React.FC<BuidlerSymfoniReactProps> = (props) => {
                                     </div>
                                 }
                             </TokenContext.Provider >
-                        </ERC20Context.Provider >
-                    </GreeterContext.Provider >
+                        </GreeterContext.Provider >
+                    </ERC20Context.Provider >
                 </CurrentAddressContext.Provider>
             </SignerContext.Provider>
         </ProviderContext.Provider>
