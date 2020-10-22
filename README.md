@@ -57,9 +57,9 @@ This tutorial will get you up and running with the Greeter contract from the Bui
 
 `npx @nomiclabs/buidler` 
 
->  If you want to test Symfoni, select the `Create a sample project`. This will give you a sample smart contract to play with. **Note that you must choose this if you wish to follow this tutorial all the way through.** It will ask you to perform a npm installation: Do it.
+* If you want to test Symfoni, select the `Create a sample project`. This will give you a sample smart contract to play with. **Note that you must choose this if you wish to follow this tutorial all the way through.**
 
-> If you do have project files to include, choose `Create an empty buidler.config.js` and copy/paste those solidity files into /contracts folder.
+* If you do have project files to include, choose `Create an empty buidler.config.js` and copy/paste those solidity files into /contracts folder.
 
 * Add Chai for testing in the dev environment:
 
@@ -89,7 +89,7 @@ const func: DeployFunction = async function(bre: BuidlerRuntimeEnvironment) {
 export default func;' > deploy/Greeter.ts
 ```
 
-###  🪄 Now let's add the Symfoni magic ✨
+### Now let's add the Symfoni magic ✨
 
 * Up until now, this is all just a regular Buidler project. Now run this command to add our packages, including dependencies:
 
@@ -108,7 +108,7 @@ cp node_modules/@symfoni/buidler-react/defaults/tsconfig.default.json tsconfig.j
 ```
 
 
-## 🎨 Lets create the front-end
+## 🎨 Let's create the front-end
 
 ### Metamask
 
@@ -158,19 +158,17 @@ shrug antique orange tragic direct drop abstract ring carry price anchor train
 
 `npx create-react-app frontend --template typescript`
 
-* Get Symfoni🎻 to do its thing by:
-  * starting a development chain
-  * compiling and deploying the contracts
-  * automatically generating the type interfaces for the contracts, and 
-  * generating a React context
+* Now run the "back-end" by executing `npx buidler node --watch --reset`. This will
+  * start a development chain
+  * compile and deploy the contracts
+  * generate the type interfaces for the contracts, and 
+  * generate a React context
 
-`npx buidler node`
-
-* Open a new terminal window and go into the front-end folder: 
+* Next, open a new terminal window and go into the front-end folder:
 
 `cd frontend/`
 
-* Then we need to add the dependencies:
+* Here we need to add some dependencies:
 
 > Note that the "Create React app" comes with an old version of Typescript, which is not compatible with Typechain, so let's also ensure Typescript is fixed at v3.9.7. Please note that v4 does not work.
 
@@ -204,7 +202,9 @@ import { BuidlerContext } from "./buidler/BuidlerContext";
   </header>
 ```
 
-* Let's create a component that consumes a smart contract and gives us some results. From the Buidler sample project, we have a smart contract called `Greeter.sol`. Open up a third terminal window, create a directory for components, and create a `tsx` file for the view of the smart contract:
+* Please accept the connection request in the Metamask pop-up
+
+* Let's now create a component that consumes a smart contract and gives us some results. From the Buidler sample project, we have a smart contract called `Greeter.sol`. Open up a third terminal window, create a directory for components, and create a `tsx` file for the view of the smart contract:
 
 `mkdir src/components && touch src/components/Greeter.tsx`
 
@@ -236,7 +236,7 @@ export const Greeter: React.FC<Props> = () => {
 }
 ```
 
-Note that the Greeter context both provide you with
+Note that the Greeter context both provides you with
 
 * a contract which contains all your functions, events and info, and
 * a factory where you can let users quickly deploy new contract instances from the front-end.
@@ -319,7 +319,7 @@ contract Token is ERC20 {
 }' > contracts/Token.sol
 ```
 
-> Note that since the user will deploy the new tokens, we do not need Buidler to deploy anything. Hence we don't need a `contracts/Token.ts` file, lie we did with the greeter.
+> Note that since the user will deploy the new tokens, we do not need Buidler to deploy anything. Hence we don't need a `contracts/Token.ts` file, like we did with the greeter.
 
 * Restart Builder to have Symfoni generate the typed React context for the contract. In your first terminal window, from the tutorial above, hit `Ctrl+c`, `arrow up`, and hit `enter`.
 
