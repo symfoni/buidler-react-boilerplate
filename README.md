@@ -5,11 +5,11 @@
 - [ethers.js v5](https://github.com/ethers-io/ethers.js#readme)
 - [web3modal](https://github.com/Web3Modal/web3modal#web3modal)
 
-😩 Deployment and testing could be sooo tedious before. With these tools, we get Ethereum-projects, which are easy to develop, manage, and maintain.
+😩 Deployment and testing could be sooo tedious before. With these tools, we get Ethereum-projects which are easy to develop, manage, and maintain.
 
 🤔 It's still kind of tedious, though. We have to find where every contract is deployed and connect them to the correct Typescript class before exporting it.
 
-🤩 What if we wired all of this together and automatically generated the Typescript, completely instancialized based on your smart contracts? What if all of these tools worked together in harmony?
+🤩 What if we wired all of this together and automatically generated the Typescript files, completely instantialized based on your smart contracts? What if all of these tools worked together in harmony?
 
 ### Enter our submission to the EthOnline 2020 hackathon!
 
@@ -400,7 +400,7 @@ export default App;
 
 ### What am I seeing? 👀
 
-In `frontend/src/components/MyToken.tsx` the smart contact is available like any regular typed object:
+In `frontend/src/components/MyToken.tsx` the smart contract is available like any regular typed object:
 
 ![](https://i.imgur.com/HIceyBc.gif)
 
@@ -418,8 +418,8 @@ Thanks again for completing our two tutorials and checking out our submission to
 
 # Troubleshooting
 
-- Problem?
-  - Try running `npm cache verify` and again start from the top
+- Some problem?
+  - Try running `npm cache verify` and start again from the top
 
 # Where to go from here
 
